@@ -1,5 +1,5 @@
 import streamlit as st
-import PyMuPDF
+import pymupdf
 import os
 import glob
 
@@ -12,7 +12,7 @@ def search_phrase_in_pdf(pdf_path, phrase):
     :return: List of page numbers where the phrase is found.
     """
     found_pages = []
-    with PyMuPDF.open(pdf_path) as pdf_document:
+    with pymupdf.open(pdf_path) as pdf_document:
         for page_number in range(len(pdf_document)):
             page = pdf_document[page_number]
             text = page.get_text()
@@ -46,7 +46,7 @@ def display_pdf_page(pdf_path, page_number, search_phrase):
     :param pdf_path: Path to the PDF file.
     :param page_number: Page number to display.
     """
-    with PyMuPDF.open(pdf_path) as pdf_document:
+    with pymupdf.open(pdf_path) as pdf_document:
         page = pdf_document.load_page(page_number - 1)
         page.add_highlight_annot(page.search_for(search_phrase))
         image = page.get_pixmap(dpi=300)
