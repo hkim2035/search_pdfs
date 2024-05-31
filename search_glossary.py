@@ -61,7 +61,8 @@ def display_pdf_page(pdf_path, page_number, search_phrase):
 st.title("PDF 문구 검색기")
 
 # pdf_folder_path = os.path.join(os.path.dirname(__file__),"data")
-pdf_folder_path = os.path.dirname(__file__)
+# pdf_folder_path = os.path.dirname(__file__)
+pdf_folder_path = "."
 # temp_image_folder = "H:\\gith\\whatever\\search_glossarydata
 # temp = glob.glob(f"{temp_image_folder}\\*.png")
 
